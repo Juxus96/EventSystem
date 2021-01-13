@@ -1,0 +1,2 @@
+Action = returns void and gets params
+Func = returns the last type and gets the rest as params
