@@ -4,32 +4,39 @@ using UnityEngine;
 
 public class Tester : MonoBehaviour
 {
+    private int playerExp;
+    private int playerGold;
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.instance.SuscribeToEvent("MouseClick", MouseClick);
-        EventManager.instance.SuscribeToEvent("MouseClick", MouseClicka);
+        EventManager.instance.SuscribeToEvent("EnemyDie", GainExp);
+        EventManager.instance.SuscribeToEvent("EnemyDie", GainGold);
     }
+
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        EventManager.instance.RaiseEvent("EnemyDie",1);
+    //    }
+    //    if (Input.GetMouseButtonDown(1))
+    //        EventManager.instance.UnsuscribeFromEvent("MouseClick", GainExp);
+    //}
+
+
+
+    private void GainExp(int enemyType)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            EventManager.instance.RaiseEvent("MouseClick");
-            EventManager.instance.RaiseEvent("MouseClick", 5);
-        }
-        if (Input.GetMouseButtonDown(1))
-            EventManager.instance.UnsuscribeFromEvent("MouseClick", MouseClick);
+        playerExp += EnemyStorage.instance.enemies[enemyType].exp;
+        Debug.Log(playerExp);
     }
 
-    private void MouseClick()
+    private void GainGold(int enemyType)
     {
-        Debug.Log("Mouse click!");
-    }
-    
-    private void MouseClicka(int i)
-    {
-        Debug.Log("Mouse click!" + i);
+        playerGold += EnemyStorage.instance.enemies[enemyType].gold;
+        Debug.Log(playerGold);
+
     }
 }
