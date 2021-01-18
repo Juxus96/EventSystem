@@ -11,19 +11,23 @@ public class Tester : MonoBehaviour
     {
         EventManager.instance.SuscribeToEvent("EnemyDie", GainExp);
         EventManager.instance.SuscribeToEvent("EnemyDie", GainGold);
+
     }
 
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        EventManager.instance.RaiseEvent("EnemyDie",1);
-    //    }
-    //    if (Input.GetMouseButtonDown(1))
-    //        EventManager.instance.UnsuscribeFromEvent("MouseClick", GainExp);
-    //}
+    //Update is called once per frame
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            print(EventManager.instance.RaiseFuncEvent("CheckGreater", 1));
+            print(EventManager.instance.RaiseFuncEvent("CheckGreater", 7));
+            print(EventManager.instance.RaiseFuncEvent("CheckGreater", 18));
+            //EventManager.instance.RaiseEvent("EnemyDie", 1);
+        }
+        //if (Input.GetMouseButtonDown(1))
+        //    EventManager.instance.UnsuscribeFromEvent("MouseClick", GainExp);
+    }
 
 
 

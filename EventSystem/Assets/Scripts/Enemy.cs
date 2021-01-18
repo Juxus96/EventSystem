@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            OnDie();
+        //if (Input.GetMouseButtonDown(0))
+        //    OnDie();
     }
 
     private void OnDie()
